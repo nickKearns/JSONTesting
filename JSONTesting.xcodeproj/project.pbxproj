@@ -16,6 +16,7 @@
 		0187DE6224451F84006EE67F /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 0187DE6124451F84006EE67F /* locations.json */; };
 		0187DE64244521B4006EE67F /* FilmEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187DE63244521B4006EE67F /* FilmEntry.swift */; };
 		0187DE662445272F006EE67F /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187DE652445272F006EE67F /* TitleCell.swift */; };
+		0187DE68244531AF006EE67F /* FilmEntryCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187DE67244531AF006EE67F /* FilmEntryCodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		0187DE6124451F84006EE67F /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
 		0187DE63244521B4006EE67F /* FilmEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmEntry.swift; sourceTree = "<group>"; };
 		0187DE652445272F006EE67F /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		0187DE67244531AF006EE67F /* FilmEntryCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmEntryCodable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				0187DE5B24451F38006EE67F /* Info.plist */,
 				0187DE63244521B4006EE67F /* FilmEntry.swift */,
 				0187DE652445272F006EE67F /* TitleCell.swift */,
+				0187DE67244531AF006EE67F /* FilmEntryCodable.swift */,
 			);
 			path = JSONTesting;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0187DE64244521B4006EE67F /* FilmEntry.swift in Sources */,
+				0187DE68244531AF006EE67F /* FilmEntryCodable.swift in Sources */,
 				0187DE5224451F36006EE67F /* ViewController.swift in Sources */,
 				0187DE662445272F006EE67F /* TitleCell.swift in Sources */,
 				0187DE4E24451F36006EE67F /* AppDelegate.swift in Sources */,

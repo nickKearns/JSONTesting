@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     
-    var films:[FilmEntry] = []
+    var films:[FilmEntryCodable] = []
     
     
     
@@ -64,24 +64,16 @@ class ViewController: UIViewController {
             let url = URL(fileURLWithPath: path)
             print(url)
             let contents = try? Data(contentsOf: url)
-            do {
-                if let data = contents,
-                    let jsonResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [[String:Any]] {
-                    for film in jsonResult{
-                        let firstActor = film["actor_1"] as? String ?? ""
-                        let locations = film["locations"] as? String  ?? ""
-                        let releaseYear = film["release_year"] as? String  ?? ""
-                        let title = film["title"] as? String  ?? ""
-                        let movie = FilmEntry(firstActor: firstActor, locations: locations, releaseYear: releaseYear, title: title)
-                        films.append(movie)
-                        
-                    }
-                    print(films.count)
+            if let data = contents {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                do {
+                    let filmsFromJSON = try decoder.decode([FilmEntryCodable].self, from: data)
+                    films = filmsFromJSON
                     table.reloadData()
-                    
+                } catch {
+                    print("Parsing Failed")
                 }
-            } catch {
-                print("Error deserializing JSON: \(error)")
             }
         }
         
@@ -98,7 +90,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell") as! TitleCell
-        cell.label.text = films[indexPath.row].locations
+        let film = films[indexPath.row]
+        cell.label.text = film.locations + " " + film.releaseYear.value
         return cell
     }
     
